@@ -3,7 +3,8 @@ import React from 'react'
 class BookCase extends React.Component {
     render() {
         return (
-            { this.props.shelves.map((shelf) => (
+            <div>
+                { this.props.shelves.map((shelf) => (
                 <div className="bookshelf" key={shelf.shelfId}>
                     <h2 className="bookshelf-title">
                         {shelf.shelfName === 'currentlyReading' ? 'Currently Reading' :
@@ -15,7 +16,8 @@ class BookCase extends React.Component {
                         <li>Book</li>
                     </div>
                 </div>
-            ))}
+                ))}
+            </div>
         )
     }
 }
