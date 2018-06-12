@@ -5,7 +5,7 @@ class ShelfSelector extends React.Component {
         const book= this.props.book // Blah, blah, blah
         console.log('Shelf', this.props.shelf, ' Book ', book, ' shelfSelect ', this.props.shelfSelect) // Blah, blah, blah
         return (
-            <select>
+            <select onChange={ (event) => (this.props.shelfSelect(book, event.target.value)) }>
                 <option value="none" disabled="disabled">Move to...</option>
                 { this.props.shelf === 'currentlyReading' ? <option value="currentlyReading" disabled="disabled">Currently Reading</option> : <option value="currentlyReading">Currently Reading</option> }
                 { this.props.shelf === 'wantToRead' ? <option value="wantToRead" disabled="disabled">Want to Read</option> : <option value="wantToRead">Want to Read</option> }
