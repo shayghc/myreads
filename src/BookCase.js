@@ -14,7 +14,7 @@ class BookCase extends React.Component {
                         }
                     </h2>
                     <div className="bookshelf-books">
-                        <BookList books={ this.props.books } />
+                        <BookList books={ this.props.books } shelfName={ shelf.shelfName } shelfSelect={ this.props.shelfSelect }/>
                     </div>
                 </div>
                 ))}

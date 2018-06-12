@@ -38,6 +38,10 @@ class BooksApp extends React.Component {
         })
     }
 
+    shelfSelect() {
+        <div>Ready to change</div>
+    }
+
     render() {
         return (<div className="app">
             {
@@ -68,7 +72,7 @@ class BooksApp extends React.Component {
                             <h1>MyReads</h1>
                         </div>
                         <div className="list-books-content">
-                                <BookCase books={ this.state.books } shelves={ this.state.shelves} />
+                                <BookCase books={ this.state.books } shelves={ this.state.shelves} shelfSelect={ this.shelfSelect }/>
                         </div>
                         <div className="open-search">
                             <a onClick={() => this.setState({showSearchPage: true})}>Add a book</a>
