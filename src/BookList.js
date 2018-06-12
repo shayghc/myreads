@@ -17,7 +17,7 @@ class BookList extends React.Component {
                                     }}>
                                 </div>
                                 <div className="book-shelf-changer">
-                                    <ShelfSelector shelf={ book.shelf } />
+                                    <ShelfSelector shelf={ book.shelf } book={ book } shelfSelect={ this.props.shelfSelect}/>
                                 </div>
                             </div>
                             <div className="book-title">{book.title}</div>

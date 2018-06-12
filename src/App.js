@@ -38,8 +38,9 @@ class BooksApp extends React.Component {
         })
     }
 
-    shelfSelect() {
-        <div>Ready to change</div>
+    shelfSelect(book, shelf) {
+        console.log('Props', this.props)
+        console.log ('Book ', book, ' Shelf ', shelf)
     }
 
     render() {
