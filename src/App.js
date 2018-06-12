@@ -34,13 +34,24 @@ class BooksApp extends React.Component {
         // Build a library of books already in the bookcase
         // Provides the contents for the 'books' array in state
         BooksAPI.getAll().then((books) => {
-            this.setState({books})
+            this.setState({ books })
+            console.log(books)
         })
     }
 
-    shelfSelect(book, shelf) {
-        console.log('Props', this.props)
-        console.log ('Book ', book, ' Shelf ', shelf)
+    shelfSelect = ( bookToUpdate, shelf ) => {
+        BooksAPI.update(bookToUpdate, shelf).then(response => {
+
+            // set shelf for new or updated book
+            bookToUpdate.shelf = shelf
+
+            // get list of books without updated or new book
+            var updatedBooks = this.state.books.filter(book => book.id !== bookToUpdate.id)
+
+            // add book to array and set new state
+            updatedBooks.push(bookToUpdate);
+            this.setState({books: updatedBooks})
+        })
     }
 
     render() {
