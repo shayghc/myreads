@@ -3,6 +3,12 @@ import BookList from './BookList'
 import PropTypes from 'prop-types'
 
 class BookCase extends React.Component {
+    static propTypes = {
+        books: PropTypes.array.isRequired,
+        shelves: PropTypes.array.isRequired,
+        shelfSelect: PropTypes.func.isRequired
+    }
+
     render() {
         return (
             <div>
@@ -24,6 +30,7 @@ class BookCase extends React.Component {
     }
 }
 
-books.propTypes = PropTypes.object.isRequired
+
+
 
 export default BookCase

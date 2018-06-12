@@ -1,7 +1,14 @@
 import React from 'react'
 import ShelfSelector from './ShelfSelector'
+import PropTypes from 'prop-types'
 
 class BookList extends React.Component {
+    static propTypes = {
+        books: PropTypes.array.isRequired,
+        shelfName: PropTypes.string.isRequired,
+        shelfSelect: PropTypes.func.isRequired
+    }
+
     render() {
         return (
             <ol className="books-grid">

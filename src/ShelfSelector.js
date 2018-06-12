@@ -1,6 +1,12 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 class ShelfSelector extends React.Component {
+    static propTypes = {
+        book: PropTypes.object.isRequired,
+        shelfSelect: PropTypes.func.isRequired
+    }
+
     render() {
         const book= this.props.book
         return (
