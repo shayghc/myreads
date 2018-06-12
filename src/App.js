@@ -5,6 +5,7 @@ import './App.css'
 
 class BooksApp extends React.Component {
     state = {
+        // Holds the books already in the bookcase
         books: [],
         shelves: [
             {
@@ -30,7 +31,8 @@ class BooksApp extends React.Component {
     }
 
     componentDidMount() {
-        // Build a library of available books
+        // Build a library of books already in the bookcase
+        // Provides the contents for the 'books' array in state
         BooksAPI.getAll().then((books) => {
             this.setState({books})
         })
