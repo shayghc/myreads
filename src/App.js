@@ -1,7 +1,9 @@
-import React from "react";
-import * as BooksAPI from "./BooksAPI";
-import BookCase from "./BookCase";
-import "./App.css";
+import React from "react"
+import * as BooksAPI from "./BooksAPI"
+import BookCase from "./BookCase"
+import BookSearch from './Booksearch'
+import { Link } from 'react-router-dom'
+import "./App.css"
 
 class BooksApp extends React.Component {
     state = {
@@ -25,7 +27,6 @@ class BooksApp extends React.Component {
          * users can use the browser's back and forward buttons to navigate between
          * pages, as well as provide a good URL they can bookmark and share.
          */
-        showSearchPage: false
     };
 
     componentDidMount() {
@@ -87,9 +88,10 @@ class BooksApp extends React.Component {
                                 shelfSelect={this.shelfSelect}
                             />
                         </div>
-                        <div className="open-search">
-                            <a onClick={() => this.setState({ showSearchPage: true })}>Add a book</a>
-                        </div>
+                        <Link
+                            to="/add-a-book"
+                            className="open-search">Add a book
+                        </Link>
                     </div>)
             }
         </div>);
