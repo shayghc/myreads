@@ -1,6 +1,6 @@
-import React from "react";
-import BookList from "./BookList";
-import PropTypes from "prop-types";
+import React from "react"
+import BookList from "./BookList"
+import PropTypes from "prop-types"
 
 class BookCase extends React.Component {
     static propTypes = {

@@ -1,6 +1,6 @@
-import React from "react";
-import ShelfSelector from "./ShelfSelector";
-import PropTypes from "prop-types";
+import React from "react"
+import ShelfSelector from "./ShelfSelector"
+import PropTypes from "prop-types"
 
 class BookList extends React.Component {
     static propTypes = {
