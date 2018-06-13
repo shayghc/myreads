@@ -44,7 +44,7 @@ class BookCase extends React.Component {
                     </section>);
                 </div>
                 <div className="open-search">
-                    <Link to="/search">Add a book</Link>
+                    <Link to="/booksearch">Add a book</Link>
                 </div>
             </div>
         )

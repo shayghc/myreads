@@ -2,7 +2,7 @@ import React from "react"
 import * as BooksAPI from "./BooksAPI"
 import BookCase from "./BookCase"
 import BookSearch from './BookSearch'
-import {Route} from 'react-router-dom'
+import { Route } from 'react-router-dom'
 import "./App.css"
 
 class BooksApp extends React.Component {
@@ -56,6 +56,7 @@ class BooksApp extends React.Component {
                         shelfSelect={this.shelfSelect}
                     />
                 )}/>
+                <Route path='/booksearch' component={ BookSearch } />
             </div>
         )
     }
