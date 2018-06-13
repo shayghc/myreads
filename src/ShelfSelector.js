@@ -5,11 +5,10 @@ class ShelfSelector extends React.Component {
     static propTypes = {
         book: PropTypes.object.isRequired,
         shelfSelect: PropTypes.func.isRequired
-    };
+    }
 
     render() {
         const book = this.props.book;
-        // disabled="disabled" removed from 'Move to...' option to permit selection of currentlyReading option
         return (<select onChange={event => this.props.shelfSelect(book, event.target.value)}>
             <option value="none" selected disabled>Move to...</option>
 
