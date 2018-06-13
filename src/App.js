@@ -32,7 +32,6 @@ class BooksApp extends React.Component {
     }
 
     shelfSelect = (bookToUpdate, shelf) => {
-        console.log("Book: ", bookToUpdate, " Shelf: ", shelf); // For testing only - event listener not passing 'currentlyReading' shelf
         BooksAPI.update(bookToUpdate, shelf).then(response => {
             // Update the shelf for this book
             bookToUpdate.shelf = shelf;
