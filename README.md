@@ -4,7 +4,7 @@ This repo contains the code for the MyReads book reading project for the React p
 
 Built on top of the [starter template](https://github.com/udacity/reactnd-project-myreads-starter). 
 
-## :zap: Quickstart
+## :point_right: Quickstart
 
 1. Clone the repo
 2. cd into the project root and run `npm install`
