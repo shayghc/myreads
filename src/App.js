@@ -1,7 +1,7 @@
-import React from 'react'
-import * as BooksAPI from './BooksAPI'
-import BookCase from './BookCase'
-import './App.css'
+import React from "react";
+import * as BooksAPI from "./BooksAPI";
+import BookCase from "./BookCase";
+import "./App.css";
 
 class BooksApp extends React.Component {
     state = {
@@ -9,16 +9,14 @@ class BooksApp extends React.Component {
         books: [],
         shelves: [
             {
-                shelfId: 'current',
-                shelfName: 'currentlyReading'
-            },
-            {
-                shelfId: 'wanted',
-                shelfName: 'wantToRead'
-            },
-            {
-                shelfId: 'read',
-                shelfName: 'read'
+                shelfId: "current",
+                shelfName: "currentlyReading"
+            }, {
+                shelfId: "wanted",
+                shelfName: "wantToRead"
+            }, {
+                shelfId: "read",
+                shelfName: "read"
             }
         ],
         /**
@@ -28,38 +26,37 @@ class BooksApp extends React.Component {
          * pages, as well as provide a good URL they can bookmark and share.
          */
         showSearchPage: false
-    }
+    };
 
     componentDidMount() {
         // Build a library of books already in the bookcase
         // Provides the contents for the 'books' array in state
-        BooksAPI.getAll().then((books) => {
-            this.setState({ books })
-        })
+        BooksAPI.getAll().then(books => {
+            this.setState({books});
+        });
     }
 
-    shelfSelect = ( bookToUpdate, shelf ) => {
-        console.log('Book: ', bookToUpdate, ' Shelf: ', shelf) // For testing only - event listener not passing 'currentlyReading' shelf
+    shelfSelect = (bookToUpdate, shelf) => {
+        console.log("Book: ", bookToUpdate, " Shelf: ", shelf); // For testing only - event listener not passing 'currentlyReading' shelf
         BooksAPI.update(bookToUpdate, shelf).then(response => {
-
             // Update the shelf for this book
-            bookToUpdate.shelf = shelf
+            bookToUpdate.shelf = shelf;
 
             // get array of books to use with setState
-            let updatedBooks = this.state.books.filter(book => book.id !== bookToUpdate.id)
+            let updatedBooks = this.state.books.filter(book => book.id !== bookToUpdate.id);
 
             // add book to array and update state
             updatedBooks.push(bookToUpdate);
-            this.setState({ books: updatedBooks })
-        })
-    }
+            this.setState({books: updatedBooks});
+        });
+    };
 
     render() {
-        console.log('State in app.js ', this.state)
+        console.log("State in app.js ", this.state);
         return (<div className="app">
             {
-                this.state.showSearchPage
-                    ? (<div className="search-books">
+                this.state.showSearchPage ?
+                    (<div className="search-books">
                         <div className="search-books-bar">
                             <a className="close-search" onClick={() => this.setState({showSearchPage: false})}>Close</a>
                             <div className="search-books-input-wrapper">
@@ -73,11 +70,10 @@ class BooksApp extends React.Component {
                                 */
                                 }
                                 <input type="text" placeholder="Search by title or author"/>
-
                             </div>
                         </div>
                         <div className="search-books-results">
-                            <ol className="books-grid"></ol>
+                            <ol className="books-grid"/>
                         </div>
                     </div>)
                     : (<div className="list-books">
@@ -85,15 +81,19 @@ class BooksApp extends React.Component {
                             <h1>MyReads</h1>
                         </header>
                         <div className="list-books-content">
-                                <BookCase books={ this.state.books } shelves={ this.state.shelves} shelfSelect={ this.shelfSelect }/>
+                            <BookCase
+                                books={this.state.books}
+                                shelves={this.state.shelves}
+                                shelfSelect={this.shelfSelect}
+                            />
                         </div>
                         <div className="open-search">
-                            <a onClick={() => this.setState({showSearchPage: true})}>Add a book</a>
+                            <a onClick={() => this.setState({ showSearchPage: true })}>Add a book</a>
                         </div>
                     </div>)
             }
-            </div>)
+        </div>);
     }
 }
 
-export default BooksApp
+export default BooksApp;
