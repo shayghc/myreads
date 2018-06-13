@@ -9,6 +9,7 @@ class ShelfSelector extends React.Component {
 
     render() {
         const book = this.props.book;
+        // disabled="disabled" removed from 'Move to...' option to permit selection of currentlyReading option
         return (<select onChange={event => this.props.shelfSelect(book, event.target.value)}>
             <option value="none">Move to...</option>
 
