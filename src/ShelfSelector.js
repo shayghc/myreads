@@ -11,11 +11,11 @@ class ShelfSelector extends React.Component {
         const book = this.props.book;
         // disabled="disabled" removed from 'Move to...' option to permit selection of currentlyReading option
         return (<select onChange={event => this.props.shelfSelect(book, event.target.value)}>
-            <option value="none">Move to...</option>
+            <option value="none" selected disabled>Move to...</option>
 
             {
                 book.shelf === "currentlyReading"
-                    ? (<option value="currentlyReading" disabled="disabled">
+                    ? (<option value="currentlyReading" disabled>
                         Currently Reading
                     </option>)
                     : (<option value="currentlyReading">Currently Reading</option>)
@@ -23,7 +23,7 @@ class ShelfSelector extends React.Component {
 
             {
                 book.shelf === "wantToRead"
-                    ? (<option value="wantToRead" disabled="disabled">
+                    ? (<option value="wantToRead" disabled>
                         Want to Read
                     </option>)
                     : (<option value="wantToRead">Want to Read</option>)
@@ -31,7 +31,7 @@ class ShelfSelector extends React.Component {
 
             {
                 book.shelf === "read"
-                    ? (<option value="read" disabled="disabled">
+                    ? (<option value="read" disabled>
                         Read
                     </option>)
                     : (<option value="read">Read</option>)
@@ -39,7 +39,7 @@ class ShelfSelector extends React.Component {
 
             {
                 book.shelf === "none"
-                    ? (<option value="none" disabled="disabled">
+                    ? (<option value="none" disabled>
                         None
                     </option>)
                     : (<option value="none">None</option>)
