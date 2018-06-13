@@ -11,7 +11,7 @@ class BookCase extends React.Component {
 
     render() {
         return (
-            <div>
+            <section>
                 { this.props.shelves.map((shelf) => (
                 <div className="bookshelf" key={ shelf.shelfId }>
                     <h2 className="bookshelf-title">
@@ -25,7 +25,7 @@ class BookCase extends React.Component {
                     </div>
                 </div>
                 ))}
-            </div>
+            </section>
         )
     }
 }
