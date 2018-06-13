@@ -46,15 +46,16 @@ class BooksApp extends React.Component {
             bookToUpdate.shelf = shelf
 
             // get array of books to use with setState
-            var updatedBooks = this.state.books.filter(book => book.id !== bookToUpdate.id)
+            let updatedBooks = this.state.books.filter(book => book.id !== bookToUpdate.id)
 
             // add book to array and update state
             updatedBooks.push(bookToUpdate);
-            this.setState({books: updatedBooks})
+            this.setState({ books: updatedBooks })
         })
     }
 
     render() {
+        console.log('State in app.js ', this.state)
         return (<div className="app">
             {
                 this.state.showSearchPage
@@ -80,9 +81,9 @@ class BooksApp extends React.Component {
                         </div>
                     </div>)
                     : (<div className="list-books">
-                        <div className="list-books-title">
+                        <header className="list-books-title">
                             <h1>MyReads</h1>
-                        </div>
+                        </header>
                         <div className="list-books-content">
                                 <BookCase books={ this.state.books } shelves={ this.state.shelves} shelfSelect={ this.shelfSelect }/>
                         </div>
