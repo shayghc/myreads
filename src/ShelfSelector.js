@@ -4,17 +4,19 @@ import PropTypes from "prop-types"
 class ShelfSelector extends React.Component {
     static propTypes = {
         book: PropTypes.object.isRequired,
-        shelfSelect: PropTypes.func.isRequired
+        shelfSelect: PropTypes.func.isRequired,
+        shelf: PropTypes.string.isRequired
     }
 
     render() {
         const book = this.props.book;
+        const defaultValue = this.props.shelf
         return (<select onChange={event => this.props.shelfSelect(book, event.target.value)}>
-            <option value="none" selected disabled>Move to...</option>
+            <option value="none" disabled>Move to...</option>
 
             {
                 book.shelf === "currentlyReading"
-                    ? (<option value="currentlyReading" disabled>
+                    ? (<option value="currentlyReading" selected disabled>
                         Currently Reading
                     </option>)
                     : (<option value="currentlyReading">Currently Reading</option>)
@@ -22,7 +24,7 @@ class ShelfSelector extends React.Component {
 
             {
                 book.shelf === "wantToRead"
-                    ? (<option value="wantToRead" disabled>
+                    ? (<option value="wantToRead" selected disabled>
                         Want to Read
                     </option>)
                     : (<option value="wantToRead">Want to Read</option>)
@@ -30,7 +32,7 @@ class ShelfSelector extends React.Component {
 
             {
                 book.shelf === "read"
-                    ? (<option value="read" disabled>
+                    ? (<option value="read" selected disabled>
                         Read
                     </option>)
                     : (<option value="read">Read</option>)
@@ -38,7 +40,7 @@ class ShelfSelector extends React.Component {
 
             {
                 book.shelf === "none"
-                    ? (<option value="none" disabled>
+                    ? (<option value="none" selected disabled>
                         None
                     </option>)
                     : (<option value="none">None</option>)
