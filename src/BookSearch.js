@@ -1,8 +1,13 @@
 import React from 'react'
-import { Route } from 'react-router-dom'
 import { Link } from 'react-router-dom'
+import BooksAPI from './BooksAPI'
 
 class BookSearch extends React.Component {
+    state = {
+        books: [],
+        query: ''
+    }
+    
     render() {
         return (
             <div className="search-books">
