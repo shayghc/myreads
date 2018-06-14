@@ -5,9 +5,9 @@ class ShelfSelector extends React.Component {
     static propTypes = {
         book: PropTypes.object.isRequired,
         shelfSelect: PropTypes.func.isRequired,
-        shelf: PropTypes.string.isRequired
+        shelf: PropTypes.string
     }
-
+    
     render() {
         const book = this.props.book;
         return (<select onChange={event => this.props.shelfSelect(book, event.target.value)}>

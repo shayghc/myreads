@@ -42,11 +42,18 @@ class BookSearch extends React.Component {
                                             backgroundImage: `url(${
                                             book.imageLinks.thumbnail})`
                                         }}/>
+                                    <div className="book-shelf-changer">
+                                        <ShelfSelector shelf={book.shelf} book={book} shelfSelect={this.props.shelfSelect}/>
+                                    </div>
                                 </div>
                                 <div className="book-title">
                                     {book.title}
                                 </div>
-                                
+                                {
+                                    <div className="book-authors">
+                                        { book.authors }
+                                    </div>
+                                }
                             </div>
                         </li>
                     ))}
