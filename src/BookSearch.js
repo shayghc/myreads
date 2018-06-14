@@ -8,8 +8,8 @@ class BookSearch extends React.Component {
         query: ''
     }
 
-    searchInput = (event) => {
-        this.setState({ query: event.target.value })
+    searchInput = (query) => {
+        this.setState({ query: query.trim() })
     }
 
     render() {
@@ -20,7 +20,8 @@ class BookSearch extends React.Component {
                     <input
                         type="text"
                         placeholder="Search by title or author"
-                        onChange={ this.searchInput }
+                        value={ this.state.query }
+                        onChange={ (event) => this.searchInput(event.target.value) }
                     />
                 </div>
             </div>
