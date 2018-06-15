@@ -13,25 +13,29 @@ class BookSearch extends React.Component {
         this.setState({query: query.trim()})
 
         if (query) {
-            BooksAPI.search(query, 20).then((books) => {
+            BooksAPI.search(query).then((books) => {
                 books.length > 0
-                    ? this.setState({searchedBooks: books, searchErr: false})
-                    : this.setState({searchedBooks: [], searchErr: true})
+                    ? this.setState({searchedBooks: books})
+                    : this.setState({searchedBooks: []})
             })
         }
     }
 
     render() {
-        console.log(this.state.searchedBooks)
         return (<div className="search-books">
             <div className="search-books-bar">
                 <Link exact="exact" to='/' className="close-search">Close</Link>
                 <div className="search-books-input-wrapper">
-                    <input type="text" placeholder="Search by title or author" value={this.state.query} onChange={(event) => this.searchInput(event.target.value)}/>
+                    <input type="text"
+                        placeholder="Search by title or author"
+                        value={this.state.query}
+                        onChange={(event) => this.searchInput(event.target.value)}
+                    />
                 </div>
             </div>
             <div className="search-books-results">
                 <ol className="books-grid">
+
                     { this.state.searchedBooks.map((book) => (
                         <li key={book.id}>
                             <div className="book">
