@@ -20,7 +20,7 @@ class BookCase extends React.Component {
                     <section>
                         {
                             this.props.shelves.map(shelf => (
-                            <div className="bookshelf" key={shelf.shelfId}>
+                            <div className="bookshelf" key={ shelf.shelfId }>
                                 <h2 className="bookshelf-title">
                                     {
                                         shelf.shelfName === "currentlyReading"
@@ -34,9 +34,10 @@ class BookCase extends React.Component {
                                 </h2>
                                 <div className="bookshelf-books">
                                     <BookList
-                                        books={this.props.books}
-                                        shelfName={shelf.shelfName}
-                                        shelfSelect={this.props.shelfSelect}
+                                        books={ this.props.books }
+                                        shelfName={ shelf.shelfName }
+                                        shelfSelect={ this.props.shelfSelect }
+                                        addBook={ this.props.addBook }
                                     />
                                 </div>
                             </div>))

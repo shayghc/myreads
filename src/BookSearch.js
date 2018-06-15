@@ -35,7 +35,6 @@ class BookSearch extends React.Component {
             </div>
             <div className="search-books-results">
                 <ol className="books-grid">
-
                     { this.state.searchedBooks.map((book) => (
                         <li key={book.id}>
                             <div className="book">
@@ -47,7 +46,11 @@ class BookSearch extends React.Component {
                                             book.imageLinks.thumbnail})`
                                         }}/>
                                     <div className="book-shelf-changer">
-                                        <ShelfSelector shelf={book.shelf} book={book} shelfSelect={this.props.shelfSelect}/>
+                                        <ShelfSelector
+                                            shelf={ book.shelf }
+                                            book={ book }
+                                            shelfSelect={ this.props.shelfSelect }
+                                        />
                                     </div>
                                 </div>
                                 <div className="book-title">

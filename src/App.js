@@ -27,7 +27,7 @@ class BooksApp extends React.Component {
         // Build a library of books already in the bookcase
         // Provides the contents for the 'books' array in state
         BooksAPI.getAll().then(books => {
-            this.setState({books});
+            this.setState({ books });
         });
     }
 
@@ -41,7 +41,7 @@ class BooksApp extends React.Component {
 
             // add book to array and update state
             updatedBooks.push(bookToUpdate);
-            this.setState({books: updatedBooks});
+            this.setState({ books: updatedBooks });
         });
     };
 
@@ -50,16 +50,16 @@ class BooksApp extends React.Component {
             <div className="app">
                 <Route exact path='/' render={() => (
                     <BookCase
-                        books={this.state.books}
-                        shelves={this.state.shelves}
-                        shelfSelect={this.shelfSelect}
+                        books={ this.state.books }
+                        shelves={ this.state.shelves }
+                        shelfSelect={ this.shelfSelect }
                     />
                 )}/>
-                <Route path='/booksearch' render={() => (
+                <Route path='/booksearch' render={({ history }) => (
                     <BookSearch
-                        books={this.state.books}
-                        shelves={this.state.shelves}
-                        shelfSelect={this.shelfSelect}
+                        books={ this.state.books }
+                        shelves={ this.state.shelves }
+                        shelfSelect={ this.shelfSelect }
                     />
                 )} />
             </div>
