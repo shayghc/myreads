@@ -10,7 +10,7 @@ class BookSearch extends React.Component {
     }
 
     searchInput = (query) => {
-        this.setState({query: query.trim()})
+        this.setState({query: query })
 
         if (query) {
             BooksAPI.search(query).then((books) => {
