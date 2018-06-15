@@ -5,7 +5,7 @@ class ShelfSelector extends React.Component {
     static propTypes = {
         book: PropTypes.object.isRequired,
         shelfSelect: PropTypes.func.isRequired,
-        shelf: PropTypes.string
+        shelf: PropTypes.string.isRequired
     }
 
     render() {
