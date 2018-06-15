@@ -7,42 +7,42 @@ class ShelfSelector extends React.Component {
         shelfSelect: PropTypes.func.isRequired,
         shelf: PropTypes.string
     }
-    
+
     render() {
         const book = this.props.book;
         return (<select onChange={event => this.props.shelfSelect(book, event.target.value)}>
-            <option value="none" disabled>Move to...</option>
+            <option value="none" disabled>&nbsp;&nbsp;&nbsp;&nbsp;Move to...</option>
 
             {
                 book.shelf === "currentlyReading"
-                    ? (<option value="currentlyReading" selected disabled>
-                        Currently Reading
+                    ? (<option value="currentlyReading" selected>
+                        &#10004; Currently Reading
                     </option>)
-                    : (<option value="currentlyReading">Currently Reading</option>)
+                    : (<option value="currentlyReading">&nbsp;&nbsp;&nbsp;&nbsp;Currently Reading</option>)
             }
 
             {
                 book.shelf === "wantToRead"
-                    ? (<option value="wantToRead" selected disabled>
-                        Want to Read
+                    ? (<option value="wantToRead" selected>
+                        &#10004; Want to Read
                     </option>)
-                    : (<option value="wantToRead">Want to Read</option>)
+                    : (<option value="wantToRead">&nbsp;&nbsp;&nbsp;&nbsp;Want to Read</option>)
             }
 
             {
                 book.shelf === "read"
-                    ? (<option value="read" selected disabled>
-                        Read
+                    ? (<option value="read" selected>
+                        &#10004; Read
                     </option>)
-                    : (<option value="read">Read</option>)
+                    : (<option value="read">&nbsp;&nbsp;&nbsp;&nbsp;Read</option>)
             }
 
             {
                 book.shelf === "none"
-                    ? (<option value="none" selected disabled>
+                    ? (<option value="none" selected>
                         None
                     </option>)
-                    : (<option value="none">None</option>)
+                    : (<option value="none">&nbsp;&nbsp;&nbsp;&nbsp;None</option>)
             }
         </select>);
     }
