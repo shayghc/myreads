@@ -10,7 +10,7 @@ class ShelfSelector extends React.Component {
 
     render() {
         const book = this.props.book;
-        return (<select defaultValue="none" onChange={event => this.props.shelfSelect(book, event.target.value)}>
+        return (<select value="none" onChange={event => this.props.shelfSelect(book, event.target.value)}>
             <option disabled>&nbsp;&nbsp;&nbsp;&nbsp;Move to...</option>
 
             {
