@@ -13,31 +13,37 @@ class BookSearch extends React.Component {
         this.setState({ query: query })
         // Confirm that there is a query
         if (query) {
-            this.checkInput(this.state.query)
+            this.componentDidMount(this.state.query)
         } else {
             this.setState({ searchedBooks: [] })
         }
     }
 
-    checkInput = (query) => {
-        BooksAPI.search(query).then((response) => {
+    componentDidMount(query) {
+        // Build a library of books already in the bookcase
+        // Provides the contents for the 'books' array in state
+        BooksAPI.search(query).then(response => {
             // If the API returns a response to the query
             if (response) {
-                // For each book in the response...
-                response.map((book) => (
-                    // Check to see if the book is already in the bookcase
-                    this.props.books.map((bookcheck) => (
-                            // If so, set the query book to the same shelf as the book already in the bookcase
-                            bookcheck.id === book.id && (book.shelf = bookcheck.shelf)
-                    ))
-                ))
+                this.checkInput(response)
             }
-            // After all books are checked then set the searchedBooks array
-            this.setState({ searchedBooks: response })
-        }, error => {
+        }), error => {
             // In the event of an API response error, void the searchedBooks array
             this.setState({ searchedBooks: [] })
         }
+    }
+
+    checkInput = (query) => {
+        // For each book in the response...
+        query.map((book) => (
+            // Check to see if the book is already in the bookcase
+            this.props.books.map((bookcheck) => (
+                    // If so, set the query book to the same shelf as the book already in the bookcase
+                    bookcheck.id === book.id && (book.shelf = bookcheck.shelf)
+            ))
+        ))
+        // After all books are checked then set the searchedBooks array
+        this.setState({ searchedBooks: query })
     }
 
     render() {
