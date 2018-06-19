@@ -1,5 +1,4 @@
 import React from "react"
-import ShelfSelector from "./ShelfSelector"
 import PropTypes from "prop-types"
 import Book from "./Book"
 
