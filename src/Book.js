@@ -1,6 +1,7 @@
 import React from "react";
 import ShelfSelector from "./ShelfSelector";
 import bookCover from "./icons/Book.svg.png";
+import Authors from './Authors'
 
 class Book extends React.Component {
     render() {
@@ -28,11 +29,7 @@ class Book extends React.Component {
                     </div>
                 </div>
                 <div className="book-title">{book.title}</div>
-                {book.authors.map((author, index) => (
-                    <div className="book-authors" key={index}>
-                        {author}
-                    </div>
-                ))}
+                <Authors book={ book } />
             </div>
         );
     }
