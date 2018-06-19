@@ -11,6 +11,7 @@ class Book extends React.Component {
 
     render() {
         const { book } = this.props;
+        // Alternate book cover image if not present in the array
         const bookImage = book.imageLinks
             ? book.imageLinks.thumbnail
             : bookCover;
