@@ -46,6 +46,10 @@ class BookSearch extends React.Component {
         this.setState({ searchedBooks: query })
     }
 
+    checkErrors = (book) => {
+        console.log(book.authors)
+    }
+
     render() {
         return (<div className="search-books">
             <div className="search-books-bar">
@@ -82,9 +86,9 @@ class BookSearch extends React.Component {
                                     { book.title }
                                 </div>
                                 {
-                                    <div className="book-authors">
-                                            { book.authors }
-                                    </div>
+                                    book.authors.map((author, index) => (<div className="book-authors" key={index}>
+                                        {author}
+                                    </div>))
                                 }
                             </div>
                         </li>))
