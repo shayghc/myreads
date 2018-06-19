@@ -9,15 +9,25 @@ class BookSearch extends React.Component {
         query: ""
     };
 
+    /** searchInput class
+     * @function [searchInput]
+     * @description This function validates that query has content and clears the searchedBooks state if not
+     * @param {string} query. This parameter contains the search text string
+     */
     searchInput = query => {
         this.setState({ query: query });
         if (query) {
             this.componentDidMount(this.state.query);
-        } else {
+        } else if (query === '') {
             this.setState({ searchedBooks: [] });
         }
     };
 
+    /** componentDidMount class
+     * @function [componentDidMount]
+     * @description This function passes the search query to the BooksAPI
+     * @param {string} query. This parameter contains the search text string
+     */
     componentDidMount(query) {
         // Build a library of books already in the bookcase
         // Provides the contents for the 'books' array in state
@@ -33,6 +43,11 @@ class BookSearch extends React.Component {
         });
     }
 
+    /** checkInput class
+     * @function [checkInput]
+     * @description This function checks that books already in the bookcase have the correct shelf assigned when viewed in the search page, then sets that state of the searchedBooks array
+     * @param {object} query. This parameter contains the BooksAPI search response object
+     */
     checkInput = query => {
         // For each book in the response...
         query.map(book =>
