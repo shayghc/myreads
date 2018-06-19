@@ -1,9 +1,9 @@
-import React from "react"
-import * as BooksAPI from "./BooksAPI"
-import BookCase from "./BookCase"
-import BookSearch from './BookSearch'
-import { Route } from 'react-router-dom'
-import "./App.css"
+import React from "react";
+import * as BooksAPI from "./BooksAPI";
+import BookCase from "./BookCase";
+import BookSearch from "./BookSearch";
+import { Route } from "react-router-dom";
+import "./App.css";
 
 class BooksApp extends React.Component {
     state = {
@@ -13,15 +13,17 @@ class BooksApp extends React.Component {
             {
                 shelfId: "current",
                 shelfName: "currentlyReading"
-            }, {
+            },
+            {
                 shelfId: "wanted",
                 shelfName: "wantToRead"
-            }, {
+            },
+            {
                 shelfId: "read",
                 shelfName: "read"
             }
         ]
-    }
+    };
 
     componentDidMount() {
         // Build a library of books already in the bookcase
@@ -37,7 +39,9 @@ class BooksApp extends React.Component {
             bookToUpdate.shelf = shelf;
 
             // get array of books to use with setState
-            let updatedBooks = this.state.books.filter(book => book.id !== bookToUpdate.id);
+            let updatedBooks = this.state.books.filter(
+                book => book.id !== bookToUpdate.id
+            );
 
             // add book to array and update state
             updatedBooks.push(bookToUpdate);
@@ -48,22 +52,29 @@ class BooksApp extends React.Component {
     render() {
         return (
             <div className="app">
-                <Route exact path='/' render={() => (
-                    <BookCase
-                        books={ this.state.books }
-                        shelves={ this.state.shelves }
-                        shelfSelect={ this.shelfSelect }
-                    />
-                )}/>
-                <Route path='/booksearch' render={({ history }) => (
-                    <BookSearch
-                        books={ this.state.books }
-                        shelves={ this.state.shelves }
-                        shelfSelect={ this.shelfSelect }
-                    />
-                )} />
+                <Route
+                    exact
+                    path="/"
+                    render={() => (
+                        <BookCase
+                            books={this.state.books}
+                            shelves={this.state.shelves}
+                            shelfSelect={this.shelfSelect}
+                        />
+                    )}
+                />
+                <Route
+                    path="/booksearch"
+                    render={({ history }) => (
+                        <BookSearch
+                            books={this.state.books}
+                            shelves={this.state.shelves}
+                            shelfSelect={this.shelfSelect}
+                        />
+                    )}
+                />
             </div>
-        )
+        );
     }
 }
 
