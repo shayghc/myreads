@@ -46,10 +46,6 @@ class BookSearch extends React.Component {
         this.setState({ searchedBooks: query })
     }
 
-    checkErrors = (book) => {
-        console.log(book.authors)
-    }
-
     render() {
         return (<div className="search-books">
             <div className="search-books-bar">
