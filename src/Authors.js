@@ -1,8 +1,8 @@
-import React from 'react'
+import React from "react";
 
 class Authors extends React.Component {
     render() {
-        const { book } = this.props
+        const { book } = this.props;
         if (book.authors) {
             return (
                 <span>
@@ -12,16 +12,11 @@ class Authors extends React.Component {
                         </div>
                     ))}
                 </span>
-            )
+            );
         } else {
-            return (
-                <div className="book-authors">
-                    No named author
-                </div>
-            )
+            return <div className="book-authors">No named author</div>;
         }
-
     }
 }
 
-export default Authors
+export default Authors;
