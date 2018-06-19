@@ -2,8 +2,13 @@ import React from "react";
 import ShelfSelector from "./ShelfSelector";
 import bookCover from "./icons/Book.svg.png";
 import Authors from './Authors'
+import PropTypes from "prop-types";
 
 class Book extends React.Component {
+    static propTypes = {
+        book: PropTypes.object.isRequired
+    }
+
     render() {
         const { book } = this.props;
         const bookImage = book.imageLinks
