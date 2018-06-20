@@ -10,7 +10,7 @@ Built on top of the [starter template](https://github.com/udacity/reactnd-projec
 2. cd into the project root and run `npm install`
 3. run `npm start` to activate the server.
 
-If you follow those steps the app should open in your default browser.
+Follow these steps to open the app in your default browser.
 
 ## Important
 
@@ -22,4 +22,4 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Contributing :computer:
 
-Always happy to collaborate. If you have any questions or comments to offer regarding coding approaches for more effective/concise code please reach out via [email](mailto:sghconnolly@gmail.com)
+Always happy to collaborate. If you have any questions or even comments to offer regarding coding approaches for more effective/concise code please reach out via [email](mailto:sghconnolly@gmail.com).
